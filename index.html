@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>
+            Harangozó Bence beadandó
+        </title>
+        <!-- Style.css import -->
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <script>
+            //Név + kiíratás
+            var név = prompt("Mi a neve?");
+            if (név != "") {
+                document.write("<font color='green'><h2>Üdvözlöm az oldalamon, "+név+"!</h2></font>");
+            }
+            else
+            {
+                document.write("<font color='green'><h2>Üdvözlöm az oldalamon, Idegen!</h2></font>");
+            }
+            //Magamról menüpont
+            function magamról() {
+            document.getElementById("tartalom").innerHTML = "Név: Harangozó Bence <br> Neptun kód: WH94HQ <br>";
+            document.getElementById("egyéb").innerHTML = "";
+            }
+            //Aktuális dátum menüpont
+            function dátum() {
+                var dátum = document.getElementById("tartalom");
+                dátum.innerHTML = Date();
+                document.getElementById("egyéb").innerHTML = "";
+            }
+            //Gondoltam egy számra menüpont
+            function kérdés() {
+                document.getElementById("tartalom").innerHTML = "Gondoltam egy számot 0 és 10 között. Kérem a tippet! <br><br> "+
+                "<input type='text' id='tipp'> <button onclick='tipp();'>Tipp</button>";
+                document.getElementById("egyéb").innerHTML = "";
+            }
+            //Tank menüpont
+            function lol () {
+                document.getElementById("tartalom").innerHTML = "Tigris I a korához képest moder tank volt "+
+                "<br>Németország legrettegetteb tankja volt a II világháború folyamán<br> "
+                "<br> <a target='blank' href='https://www.youtube.com/watch?v=6cAHVOGXDO8'>További információk</a>"
+                document.getElementById("egyéb").innerHTML = "<a target='blank' href='https://www.youtube.com/watch?v=6cAHVOGXDO8'>"+
+                "<img src='StarWars.jpg' width='75%' height='75%'/></a> <iframe width='560' height='315' src='https://www.youtube.com/watch?v=ZdCgDeY_5Tg'"+
+                "frameborder='0'></iframe>";
+            }
+            //Stílus menüpont
+            function stílus() {
+                document.getElementById("tartalom").innerHTML = "<h2 id='stílus' onmouseover= 'színez();' onmouseout= 'színez2();'>"+
+                "Fekete vagy Arany?</h2>";
+                document.getElementById("egyéb").innerHTML = "";
+            }
+            //Stílus színez aranyra func
+            function színez() {
+		document.getElementById("stílus").style.color = "gold";
+	    }
+            //Stílus vissza feketére func
+            function színez2() {
+		document.getElementById("stílus").style.color = "black";
+            }
+            //Gondoltam egy számra func
+            function tipp() {
+                var tipp = document.getElementById("tipp").value;
+                var sorsol = Math.round(Math.random()*10);
+                if(tipp == sorsol) document.getElementById("egyéb").innerHTML = "Talált!";
+                else document.getElementById("egyéb").innerHTML = "Nem talált! A gondolt szám: "+sorsol;
+            }
+        </script>
+    </head>
+    <body>
+	<body background="csillagnagy.jpg">
+        <!-- Menü -->
+        <div class="menü">
+            <span class="umenü" onmouseover="this.style.cursor='pointer'" onclick="magamról();">Magamról</span> -
+            <span class="umenü" onmouseover="this.style.cursor='pointer'" onclick="dátum();">Aktuális dátum</span> -
+            <span class="umenü" onmouseover="this.style.cursor='pointer'" onclick="kérdés();">Találós kérdés</span> -
+            <span class="umenü" onmouseover="this.style.cursor='pointer'" onclick="lol();">Tiger I</span> -
+            <span class="umenü" onmouseover="this.style.cursor='pointer'" onclick="stílus();">JavaScript Stílus</span>
+        </div>
+        <br><hr><br>
+        <p id="tartalom"/>
+        <p id="egyéb"/>
+    </body>
+</html>
